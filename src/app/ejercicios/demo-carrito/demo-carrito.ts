@@ -13,4 +13,8 @@ export class DemoCarritoComponent {
   // que lo recorran, y onAddToCart(item) que agregue el producto (sumando
   // la cantidad si el id ya existe). Escúchalo con
   // (addToCart)="onAddToCart($event)" en cada <app-product-card />.
+
+  manejarAgregarAlCarrito(data: any){
+    console.log(data)
+  }
 }

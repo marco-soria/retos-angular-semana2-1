@@ -6,9 +6,9 @@
     </header>
 
     <section class="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-6">
-      <app-product-card />
-      <app-product-card />
-      <app-product-card />
+      <app-product-card [id]="1" nombre="prueba" [precio]="100" imagen="prueba" (addToCart)="manejarAgregarAlCarrito($event)" />
+      <app-product-card [id]="2" nombre="prueba 2" [precio]="80" imagen="prueba" (addToCart)="manejarAgregarAlCarrito($event)"/>
+      <app-product-card [id]="3" nombre="prueba 3" [precio]="10" imagen="prueba" (addToCart)="manejarAgregarAlCarrito($event)"/>
     </section>
   </main>
 
