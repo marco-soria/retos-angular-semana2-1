@@ -7,8 +7,8 @@
     </p>
 
     <div class="flex items-center gap-4">
-      <app-interruptor />
-      <span class="text-slate-700">Luz apagada</span>
+      <app-interruptor [(activado)]="luzEncendida" />
+      <span class="text-slate-700">{{ luzEncendida() ? 'Luz encendida' : 'Luz Apagada' }}</span>
     </div>
   </section>
 </div>

@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, signal } from '@angular/core';
 import { InterruptorComponent } from '../interruptor/interruptor';
 
 @Component({
@@ -10,4 +10,5 @@ import { InterruptorComponent } from '../interruptor/interruptor';
 export class DemoInterruptorComponent {
   // TODO: crea un signal(false) llamado "luzEncendida" y enlázalo con
   // [(activado)]="luzEncendida" en el <app-interruptor /> del template.
+  luzEncendida = signal(true)
 }

@@ -3,8 +3,13 @@
   role="switch"
   aria-checked="false"
   class="w-14 h-8 rounded-full relative transition-colors duration-300 bg-slate-300"
+  (click)="alternar()"
+  [class.bg-prueba]="activado()"
+  [class.bg-slate-300]="!activado()"
 >
   <span
     class="absolute top-1 left-1 w-6 h-6 bg-white rounded-full shadow transition-transform duration-300"
+    [class.translate-x-6]="activado()"
+    [class.translate-x-0]="!activado()"
   ></span>
 </button>
