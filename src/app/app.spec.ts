@@ -14,10 +14,10 @@ describe('App', () => {
     expect(app).toBeTruthy();
   });
 
-  it('should render title', async () => {
+  it('should render the active exercise (demo-carrito) with its 3 product cards', async () => {
     const fixture = TestBed.createComponent(App);
     await fixture.whenStable();
     const compiled = fixture.nativeElement as HTMLElement;
-    expect(compiled.querySelector('h1')?.textContent).toContain('Hello, retos-angular-semana2');
+    expect(compiled.querySelectorAll('app-product-card').length).toBe(3);
   });
 });
