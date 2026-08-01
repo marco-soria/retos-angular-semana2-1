@@ -6,8 +6,13 @@
     </p>
 
     <div class="flex items-center gap-4">
-      <app-boton-me-gusta />
-      <span class="text-slate-700">Total de likes: <strong>0</strong></span>
+      <app-boton-me-gusta (megusta)="alDarMeGusta($event)" [cantidadDeLikes]="2" />
+
+      <app-boton-me-gusta (megusta)="alDarMeGusta($event)" [cantidadDeLikes]="5" />
+
+      <app-boton-me-gusta (megusta)="alDarMeGusta($event)" [cantidadDeLikes]="10" />
+
+      <span class="text-slate-700">Total de likes: <strong>{{ totalMeGusta() }}</strong></span>
     </div>
   </section>
 </div>
