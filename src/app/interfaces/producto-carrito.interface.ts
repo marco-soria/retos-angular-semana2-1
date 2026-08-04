@@ -11,4 +11,5 @@ export interface IProductoCarrito {
   nombre: string;
   precio: number;
   cantidad: number;
+  imagen: string;
 }

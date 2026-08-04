@@ -35,20 +35,25 @@
     </div>
 
     <div class="space-y-3 mb-6">
-      <div class="flex items-center gap-3 bg-slate-800 rounded-xl p-3">
-        <img
-          src="https://via.placeholder.com/60"
-          alt="Producto"
-          class="w-14 h-14 object-cover rounded-lg"
-        />
+      @for( productoCarrito of elementosCarrito; track $index ){
+        <div class="flex items-center gap-3 bg-slate-800 rounded-xl p-3">
+          <img
+            [src]="productoCarrito.imagen"
+            [alt]="productoCarrito.nombre"
+            alt="Producto"
+            class="w-14 h-14 object-cover rounded-lg"
+          />
 
-        <div class="flex-1 min-w-0">
-          <p class="text-sm font-medium text-white truncate">Nombre del producto</p>
-          <p class="text-xs text-slate-400">S/ 0.00 x 1</p>
+          <div class="flex-1 min-w-0">
+            <p class="text-sm font-medium text-white truncate">{{ productoCarrito.nombre }}</p>
+            <p class="text-xs text-slate-400">S/ {{productoCarrito.precio}} x {{ productoCarrito.cantidad }}</p>
+          </div>
+
+          <span class="text-sm font-semibold text-emerald-400">S/ {{ productoCarrito.precio * productoCarrito.cantidad }}</span>
         </div>
-
-        <span class="text-sm font-semibold text-emerald-400">S/ 0.00</span>
-      </div>
+      } @empty {
+        <p>Tu carrito esta vacio</p>
+      }
     </div>
 
     <div class="space-y-3">

@@ -43,7 +43,8 @@ export class ProductCardComponent {
       id: this.id(),
       precio: this.precio(),
       nombre: this.nombre(),
-      cantidad: this.cantidad()
+      cantidad: this.cantidad(),
+      imagen: this.imagen()
     })
   }
 
