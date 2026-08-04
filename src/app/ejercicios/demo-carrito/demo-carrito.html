@@ -6,16 +6,19 @@
     </header>
 
     <section class="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-6">
-      <app-product-card [id]="productos[0].id" [nombre]="productos[0].nombre" [precio]="productos[0].precio" [imagen]="productos[0].imagen" (addToCart)="manejarAgregarAlCarrito($event)" />
-      <app-product-card [id]="productos[1].id" [nombre]="productos[1].nombre" [precio]="productos[1].precio" [imagen]="productos[1].imagen" (addToCart)="manejarAgregarAlCarrito($event)" />
-      <app-product-card [id]="productos[2].id" [nombre]="productos[2].nombre" [precio]="productos[2].precio" [imagen]="productos[2].imagen" (addToCart)="manejarAgregarAlCarrito($event)" />
-      <app-product-card [id]="productos[3].id" [nombre]="productos[3].nombre" [precio]="productos[3].precio" [imagen]="productos[3].imagen" (addToCart)="manejarAgregarAlCarrito($event)" />
-      <app-product-card [id]="productos[4].id" [nombre]="productos[4].nombre" [precio]="productos[4].precio" [imagen]="productos[4].imagen" (addToCart)="manejarAgregarAlCarrito($event)" />
-      <app-product-card [id]="productos[5].id" [nombre]="productos[5].nombre" [precio]="productos[5].precio" [imagen]="productos[5].imagen" (addToCart)="manejarAgregarAlCarrito($event)" />
-      <app-product-card [id]="productos[6].id" [nombre]="productos[6].nombre" [precio]="productos[6].precio" [imagen]="productos[6].imagen" (addToCart)="manejarAgregarAlCarrito($event)" />
-      <app-product-card [id]="productos[7].id" [nombre]="productos[7].nombre" [precio]="productos[7].precio" [imagen]="productos[7].imagen" (addToCart)="manejarAgregarAlCarrito($event)" />
-      <app-product-card [id]="productos[8].id" [nombre]="productos[8].nombre" [precio]="productos[8].precio" [imagen]="productos[8].imagen" (addToCart)="manejarAgregarAlCarrito($event)" />
-      <app-product-card [id]="productos[9].id" [nombre]="productos[9].nombre" [precio]="productos[9].precio" [imagen]="productos[9].imagen" (addToCart)="manejarAgregarAlCarrito($event)" />
+
+
+      @for (producto of productos; track producto.id) {
+        <app-product-card
+          [id]="producto.id"
+          [nombre]="producto.nombre"
+          [precio]="producto.precio"
+          [imagen]="producto.imagen"
+          [stock]="producto.stock"
+          (addToCart)="manejarAgregarAlCarrito($event)"
+        />
+      }
+
     </section>
   </main>
 

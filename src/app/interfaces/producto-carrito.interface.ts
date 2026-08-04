@@ -3,6 +3,7 @@ export interface IProductoTienda {
   nombre: string;
   precio: number;
   imagen: string;
+  stock: number;
 }
 
 export interface IProductoCarrito {

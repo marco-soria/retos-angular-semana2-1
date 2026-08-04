@@ -17,6 +17,7 @@ export class ProductCardComponent {
   nombre = input.required<string>()
   precio = input.required<number>()
   imagen = input.required<string>()
+  stock = input.required<number>()
 
   cantidad = model<number>(1)
 
