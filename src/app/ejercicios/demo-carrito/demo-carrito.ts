@@ -1,17 +1,12 @@
 import { Component } from '@angular/core';
 import { ProductCardComponent } from '../product-card/product-card';
-
-interface ProductoTienda {
-  id: number;
-  nombre: string;
-  precio: number;
-  imagen: string;
-}
+import { IProductoCarrito, IProductoTienda } from '../../interfaces/producto-carrito.interface';
+import { CurrencyPipe } from '@angular/common';
 
 @Component({
   selector: 'app-demo-carrito',
   standalone: true,
-  imports: [ProductCardComponent],
+  imports: [ProductCardComponent, CurrencyPipe],
   templateUrl: './demo-carrito.html',
 })
 export class DemoCarritoComponent {
@@ -21,7 +16,9 @@ export class DemoCarritoComponent {
   // la cantidad si el id ya existe). Escúchalo con
   // (addToCart)="onAddToCart($event)" en cada <app-product-card />.
 
-  productos: ProductoTienda[] = [
+  elementosCarrito: IProductoCarrito[] = []
+
+  productos: IProductoTienda[] = [
     { id: 1, nombre: 'Laptop Ultra 14"', precio: 3499, imagen: 'https://images.unsplash.com/photo-1496181133206-80ce9b88a853?w=400&h=400&fit=crop&auto=format' },
     { id: 2, nombre: 'Mouse Inalámbrico', precio: 89, imagen: 'https://images.unsplash.com/photo-1527864550417-7fd91fc51a46?w=400&h=400&fit=crop&auto=format' },
     { id: 3, nombre: 'Teclado Mecánico', precio: 259, imagen: 'https://images.unsplash.com/photo-1541140532154-b024d705b90a?w=400&h=400&fit=crop&auto=format' },
@@ -34,7 +31,23 @@ export class DemoCarritoComponent {
     { id: 10, nombre: 'Parlante Bluetooth', precio: 199, imagen: 'https://images.unsplash.com/photo-1608043152269-423dbba4e7e1?w=400&h=400&fit=crop&auto=format' },
   ];
 
-  manejarAgregarAlCarrito(data: any){
-    console.log(data)
+  manejarAgregarAlCarrito(data: IProductoCarrito){
+    this.elementosCarrito.push(data)
+  }
+
+  calcularCantidad(){
+    let cantidadTotal = 0
+    for(let index = 0; index < this.elementosCarrito.length; index++){
+      cantidadTotal += this.elementosCarrito[index].cantidad
+    }
+    return cantidadTotal
+  }
+
+  calcularPrecioTotal(){
+    let precioTotal = 0
+    for(let index = 0; index < this.elementosCarrito.length; index++){
+      precioTotal += (this.elementosCarrito[index].cantidad * this.elementosCarrito[index].precio)
+    }
+    return precioTotal
   }
 }

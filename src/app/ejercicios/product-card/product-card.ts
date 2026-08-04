@@ -1,8 +1,5 @@
 import { Component, input, model, output } from '@angular/core';
-
-interface IAddToCart {
-  id: number, nombre: string, precio: number, cantidad: number
-}
+import { IProductoCarrito } from '../../interfaces/producto-carrito.interface';
 
 @Component({
   selector: 'app-product-card',
@@ -23,7 +20,7 @@ export class ProductCardComponent {
 
   cantidad = model<number>(1)
 
-  addToCart = output<IAddToCart>()
+  addToCart = output<IProductoCarrito>()
 
   incrementar(){
     this.cantidad.update((valorActual)=>{return valorActual + 1})
