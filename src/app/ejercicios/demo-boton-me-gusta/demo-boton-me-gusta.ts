@@ -12,9 +12,9 @@ export class DemoBotonMeGustaComponent {
   // alDarMeGusta() que lo incremente. Escúchalo con
   // (megusta)="alDarMeGusta()" en el <app-boton-me-gusta /> del template.
 
-  totalMeGusta = signal(0)
+ readonly totalMeGusta = signal(0);
 
-  alDarMeGusta(numeroDeLikesPorClick: number){
-    this.totalMeGusta.update((valorActual)=>{return valorActual + numeroDeLikesPorClick})
-  }
+  alDarMeGusta(): void {
+    this.totalMeGusta.update((valor) => valor + 1);
+}
 }

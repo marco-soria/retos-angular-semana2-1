@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, signal } from '@angular/core';
 import { SemaforoComponent } from '../semaforo/semaforo';
 
 @Component({
@@ -11,4 +11,9 @@ export class DemoSemaforoComponent {
   // TODO: crea un signal('verde') llamado "colorSemaforo" y un método
   // alCambiarSemaforo(color: string) que lo actualice. Escúchalo con
   // (cambio)="alCambiarSemaforo($event)" en el <app-semaforo /> del template.
+  readonly colorSemaforo = signal('verde');
+
+  alCambiarSemaforo(color: string): void {
+    this.colorSemaforo.set(color);
+  }
 }

@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, signal } from '@angular/core';
 import { CalificacionEstrellasComponent } from '../calificacion-estrellas/calificacion-estrellas';
 
 @Component({
@@ -11,4 +11,5 @@ export class DemoCalificacionEstrellasComponent {
   // TODO: crea un signal(3) llamado "miCalificacion" y enlázalo con
   // [(calificacion)]="miCalificacion" en el <app-calificacion-estrellas />
   // del template.
+   readonly miCalificacion = signal(3);
 }

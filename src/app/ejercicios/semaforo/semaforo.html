@@ -3,17 +3,20 @@
     type="button"
     class="w-12 h-12 rounded-full bg-red-500 hover:ring-4 hover:ring-red-300 transition-shadow"
     aria-label="Luz roja"
+    (click)="seleccionar('rojo')"
   ></button>
 
   <button
     type="button"
     class="w-12 h-12 rounded-full bg-yellow-400 hover:ring-4 hover:ring-yellow-200 transition-shadow"
     aria-label="Luz amarilla"
+    (click)="seleccionar('amarillo')"
   ></button>
 
   <button
     type="button"
     class="w-12 h-12 rounded-full bg-green-500 hover:ring-4 hover:ring-green-300 transition-shadow"
     aria-label="Luz verde"
+    (click)="seleccionar('verde')"
   ></button>
 </div>

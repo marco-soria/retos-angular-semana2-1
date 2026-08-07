@@ -3,16 +3,18 @@
     type="button"
     class="w-8 h-8 rounded-full bg-slate-200 text-slate-700 font-bold hover:bg-slate-300 transition-colors"
     aria-label="Disminuir cantidad"
+    (click)="decrementar()"
   >
     −
   </button>
 
-  <span class="w-6 text-center font-semibold text-slate-800">1</span>
+  <span class="w-6 text-center font-semibold text-slate-800">{{ cantidad() }}</span>
 
   <button
     type="button"
     class="w-8 h-8 rounded-full bg-slate-200 text-slate-700 font-bold hover:bg-slate-300 transition-colors"
     aria-label="Aumentar cantidad"
+    (click)="incrementar()"
   >
     +
   </button>

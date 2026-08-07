@@ -3,11 +3,14 @@
     type="text"
     placeholder="Escribe algo..."
     class="flex-1 border border-slate-300 rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-indigo-400"
+    [value]="texto()"
+    (input)="alEscribir($event)"
   />
 
   <button
     type="button"
     class="px-4 py-2 rounded-lg bg-indigo-600 text-white font-medium hover:bg-indigo-700 transition-colors"
+    (click)="alBuscar()"
   >
     Buscar
   </button>

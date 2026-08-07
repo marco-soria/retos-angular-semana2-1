@@ -5,7 +5,9 @@
       Usa <code class="bg-slate-100 px-1 rounded">model()</code>: valor inicial (3) + two-way binding.
     </p>
 
-    <app-calificacion-estrellas />
-    <p class="text-slate-700 mt-4">Calificaste con 3 estrellas</p>
+    <app-calificacion-estrellas [(calificacion)]="miCalificacion" />
+    <p class="text-slate-700 mt-4">
+      Calificaste con {{ miCalificacion() }} estrellas
+    </p>
   </section>
 </div>

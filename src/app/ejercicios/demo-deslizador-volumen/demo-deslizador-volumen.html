@@ -7,7 +7,7 @@
       valor.
     </p>
 
-    <app-deslizador-volumen />
-    <p class="text-slate-700 mt-4">Volumen bajo</p>
+    <app-deslizador-volumen [(volumen)]="volumen" />
+    <p class="text-slate-700 mt-4">{{ descripcionVolumen() }}</p>
   </section>
 </div>

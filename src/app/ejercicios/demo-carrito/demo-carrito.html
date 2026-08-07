@@ -6,19 +6,30 @@
     </header>
 
     <section class="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-6">
-
-
-      @for (producto of productos; track producto.id) {
-        <app-product-card
-          [id]="producto.id"
-          [nombre]="producto.nombre"
-          [precio]="producto.precio"
-          [imagen]="producto.imagen"
-          [stock]="producto.stock"
-          (addToCart)="manejarAgregarAlCarrito($event)"
-        />
-      }
-
+      <app-product-card
+        [id]="1"
+        nombre="Zapatillas Runner"
+        [precio]="189.9"
+        imagen="https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=400&h=400&fit=crop&auto=format"
+        imagenAlt="Zapatillas deportivas rojas"
+        (addToCart)="onAddToCart($event)"
+      />
+      <app-product-card
+        [id]="2"
+        nombre="Auriculares Pro"
+        [precio]="129.5"
+        imagen="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=400&h=400&fit=crop&auto=format"
+        imagenAlt="Auriculares inalámbricos negros"
+        (addToCart)="onAddToCart($event)"
+      />
+      <app-product-card
+        [id]="3"
+        nombre="Reloj Smart"
+        [precio]="249"
+        imagen="https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=400&h=400&fit=crop&auto=format"
+        imagenAlt="Reloj inteligente blanco"
+        (addToCart)="onAddToCart($event)"
+      />
     </section>
   </main>
 
@@ -30,41 +41,32 @@
       <span
         class="ml-auto inline-flex items-center justify-center min-w-7 h-7 px-2 rounded-full bg-emerald-500 text-slate-900 font-bold text-sm transition-transform duration-300 scale-100"
       >
-        0
+        {{ totalItems() }}
       </span>
     </div>
 
-    <div class="space-y-3 mb-6">
-      @for( productoCarrito of elementosCarrito; track $index ){
-        <div class="flex items-center gap-3 bg-slate-800 rounded-xl p-3">
-          <img
-            [src]="productoCarrito.imagen"
-            [alt]="productoCarrito.nombre"
-            alt="Producto"
-            class="w-14 h-14 object-cover rounded-lg"
-          />
-
-          <div class="flex-1 min-w-0">
-            <p class="text-sm font-medium text-white truncate">{{ productoCarrito.nombre }}</p>
-            <p class="text-xs text-slate-400">S/ {{productoCarrito.precio}} x {{ productoCarrito.cantidad }}</p>
-          </div>
-
-          <span class="text-sm font-semibold text-emerald-400">S/ {{ productoCarrito.precio * productoCarrito.cantidad }}</span>
-        </div>
-      } @empty {
-        <p>Tu carrito esta vacio</p>
-      }
-    </div>
-
     <div class="space-y-3">
+      @if (carrito().length === 0) {
+        <p class="text-sm text-slate-400">El carrito está vacío</p>
+      } @else {
+        <ul class="space-y-2 mb-4">
+          @for (item of carrito(); track item.id) {
+            <li class="flex justify-between text-sm text-slate-300">
+              <span>{{ item.nombre }} × {{ item.qty }}</span>
+              <span class="text-white">S/ {{ (item.precio * item.qty).toFixed(2) }}</span>
+            </li>
+          }
+        </ul>
+      }
+
       <div class="flex justify-between text-sm text-slate-300">
         <span>Total de items</span>
-        <span class="font-medium text-white">{{ calcularCantidad() }}</span>
+        <span class="font-medium text-white">{{ totalItems() }}</span>
       </div>
 
       <div class="flex justify-between text-sm text-slate-300">
         <span>Total a pagar</span>
-        <span class="font-semibold text-emerald-400">{{ calcularPrecioTotal() }}</span>
+        <span class="font-semibold text-emerald-400">S/ {{ totalSoles().toFixed(2) }}</span>
       </div>
     </div>
   </aside>

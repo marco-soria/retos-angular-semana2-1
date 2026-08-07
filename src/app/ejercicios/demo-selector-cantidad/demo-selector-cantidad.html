@@ -7,10 +7,10 @@
     </p>
 
     <div class="flex flex-wrap items-center gap-6">
-      <app-selector-cantidad />
-      <app-selector-cantidad />
-      <app-selector-cantidad />
+      <app-selector-cantidad [(cantidad)]="cantidadA" />
+      <app-selector-cantidad [(cantidad)]="cantidadB" />
+      <app-selector-cantidad [(cantidad)]="cantidadC" />
     </div>
-    <p class="text-slate-700 mt-4">Suma total: <strong>3</strong></p>
+    <p class="text-slate-700 mt-4">Suma total: <strong>{{ sumaCantidades() }}</strong></p>
   </section>
 </div>

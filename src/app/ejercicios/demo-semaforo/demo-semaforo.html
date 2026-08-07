@@ -6,8 +6,8 @@
     </p>
 
     <div class="flex items-center gap-6">
-      <app-semaforo />
-      <span class="text-slate-700">Estado actual: <strong>verde</strong></span>
+      <app-semaforo (cambio)="alCambiarSemaforo($event)" />
+      <span class="text-slate-700">Estado actual: <strong>{{ colorSemaforo() }}</strong></span>
     </div>
   </section>
 </div>

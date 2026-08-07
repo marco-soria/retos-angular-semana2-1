@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, computed, signal } from '@angular/core';
 import { DeslizadorVolumenComponent } from '../deslizador-volumen/deslizador-volumen';
 
 @Component({
@@ -12,4 +12,14 @@ export class DemoDeslizadorVolumenComponent {
   // [(volumen)]="volumen" en el <app-deslizador-volumen /> del template, y
   // un computed() llamado "descripcionVolumen" con ternarios anidados
   // (0-20 Silencio, 21-60 Volumen bajo, 61-100 Volumen alto).
+  readonly volumen = signal(50);
+
+  readonly descripcionVolumen = computed(() => {
+    const valor = this.volumen();
+    return valor <= 20
+      ? 'Silencio'
+      : valor <= 60
+        ? 'Volumen bajo'
+        : 'Volumen alto';
+  });
 }

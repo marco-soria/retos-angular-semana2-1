@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, signal } from '@angular/core';
 import { TarjetaConfirmacionComponent } from '../tarjeta-confirmacion/tarjeta-confirmacion';
 
 @Component({
@@ -12,4 +12,13 @@ export class DemoTarjetaConfirmacionComponent {
   // "estadoConfirmacion" y los métodos alAceptar()/alRechazar() que lo
   // actualicen. Escúchalos con (aceptado) y (rechazado) en el
   // <app-tarjeta-confirmacion /> del template.
+  readonly estadoConfirmacion = signal('Sin responder todavía');
+
+  alAceptar(): void {
+    this.estadoConfirmacion.set('Acción aceptada ✓');
+  }
+
+  alRechazar(): void {
+    this.estadoConfirmacion.set('Acción rechazada ✗');
+  }
 }

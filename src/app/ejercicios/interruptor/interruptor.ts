@@ -4,17 +4,17 @@ import { Component, model } from '@angular/core';
   selector: 'app-interruptor',
   standalone: true,
   templateUrl: './interruptor.html',
-  styleUrl: '/styles.css'
+  styleUrl: 'styles.css'
 })
 export class InterruptorComponent {
   // TODO: crea activado = model<boolean>(false) y un método alternar()
   // que lo actualice con .update() al hacer clic. Usa [class.x]="activado()"
   // en el template para mover el círculo y cambiar el color de fondo.
 
-  activado = model()   // abarca la creacion de input y ouptut
+  readonly activado = model<boolean>(false);
 
-  alternar(){
-    this.activado.update((valorActual)=>{return !valorActual})
-  }                        // emit() viene enlazado con update()/set()
+  alternar(): void {
+    this.activado.update((valor) => !valor);
+  }                       // emit() viene enlazado con update()/set()
 
 }

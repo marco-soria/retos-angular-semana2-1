@@ -1,21 +1,14 @@
 <div class="flex gap-1 text-3xl leading-none">
-  <button type="button" class="hover:scale-125 transition-transform" aria-label="Calificar con 1 estrella">
-    <span class="text-yellow-400">★</span>
-  </button>
-
-  <button type="button" class="hover:scale-125 transition-transform" aria-label="Calificar con 2 estrellas">
-    <span class="text-yellow-400">★</span>
-  </button>
-
-  <button type="button" class="hover:scale-125 transition-transform" aria-label="Calificar con 3 estrellas">
-    <span class="text-yellow-400">★</span>
-  </button>
-
-  <button type="button" class="hover:scale-125 transition-transform" aria-label="Calificar con 4 estrellas">
-    <span class="text-slate-300">★</span>
-  </button>
-
-  <button type="button" class="hover:scale-125 transition-transform" aria-label="Calificar con 5 estrellas">
-    <span class="text-slate-300">★</span>
-  </button>
+  @for (estrella of estrellas; track estrella) {
+    <button
+      type="button"
+      class="hover:scale-125 transition-transform"
+      [attr.aria-label]="'Calificar con ' + estrella + (estrella === 1 ? ' estrella' : ' estrellas')"
+      (click)="calificar(estrella)"
+    >
+      <span [class.text-yellow-400]="estrella <= calificacion()" [class.text-slate-300]="estrella > calificacion()">
+        ★
+      </span>
+    </button>
+  }
 </div>

@@ -10,5 +10,5 @@ import { InterruptorComponent } from '../interruptor/interruptor';
 export class DemoInterruptorComponent {
   // TODO: crea un signal(false) llamado "luzEncendida" y enlázalo con
   // [(activado)]="luzEncendida" en el <app-interruptor /> del template.
-  luzEncendida = signal(true)
+  readonly luzEncendida = signal(false);
 }

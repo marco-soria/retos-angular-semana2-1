@@ -6,7 +6,9 @@
       emite al hacer clic en "Buscar".
     </p>
 
-    <app-buscador />
-    <p class="text-slate-700 mt-4">Resultados para: <strong></strong></p>
+    <app-buscador (buscar)="alBuscar($event)" />
+    <p class="text-slate-700 mt-4">
+      Resultados para: <strong>{{ textoBuscado() }}</strong>
+    </p>
   </section>
 </div>
